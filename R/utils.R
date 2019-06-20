@@ -519,7 +519,7 @@ filter_missing<-function(input.data, filter.thres = 0.2, inter = TRUE)
 #'
 #' @param void interfunction to be documented
 #' @keywords internal
-#' @export     
+#' @export
 mrk_chisq_test<-function(x, m){
   y<-x[-c(1:(m+1))]
   y[y==m+1]<-NA
@@ -532,7 +532,6 @@ mrk_chisq_test<-function(x, m){
   pval <- suppressWarnings(stats::chisq.test(x = seg.obs, p = seg.exp[names(seg.obs)])$p.value)
   pval
 }
-                 
 
 
 #' marker filter based on chi-square test

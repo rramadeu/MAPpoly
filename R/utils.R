@@ -529,7 +529,8 @@ mrk_chisq_test<-function(x, m){
   seg.exp <- seg.exp[seg.exp!=0]
   seg.obs <- seg.exp
   seg.obs[names(y)[-length(y)]]<-y[-length(y)]
-  pval <- suppressWarnings(stats::chisq.test(x = seg.obs, p = seg.exp[names(seg.obs)])$p.value)
+  pval <- NA
+  pval <- try(suppressWarnings(stats::chisq.test(x = seg.obs, p = seg.exp[names(seg.obs)])$p.value),silent=TRUE)
   pval
 }
 

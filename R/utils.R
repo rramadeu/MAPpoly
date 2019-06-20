@@ -529,9 +529,8 @@ mrk_chisq_test<-function(x, m){
   seg.exp <- seg.exp[seg.exp!=0]
   seg.obs <- seg.exp
   seg.obs[names(y)[-length(y)]]<-y[-length(y)]
-  #pval <- tryCatch(suppressWarnings(stats::chisq.test(x = seg.obs, p = seg.exp[names(seg.obs)])$p.value),
-  #                error = function(e)(return(NA)))
-  pval <- 0.1
+  pval <- tryCatch(suppressWarnings(stats::chisq.test(x = seg.obs, p = seg.exp[names(seg.obs)])$p.value),
+                  error = function(e)(return(NA)))
   pval
 }
 
